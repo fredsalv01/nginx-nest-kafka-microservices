@@ -66,7 +66,7 @@ services:
   
   anti_fraud_service:
     build:
-      context: ./anti_fraud_service
+      context: ./anti-fraud-service
     container_name: anti_fraud_service
     depends_on:
       - kafka
