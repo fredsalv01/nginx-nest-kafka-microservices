@@ -59,12 +59,18 @@ services:
     build:
       context: ./transaction-service
     container_name: transaction_service
-    ports:
-      - "3003:3000"
     depends_on:
       - kafka
       - postgres
       - redis
+  
+  anti_fraud_service:
+    build:
+      context: ./anti_fraud_service
+    container_name: anti_fraud_service
+    depends_on:
+      - kafka
+      - transaction_service
 
   nginx:
     image: nginx:latest
